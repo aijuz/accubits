@@ -1,23 +1,18 @@
 import 'package:accubits/src/bloc/user_bloc.dart';
 import 'package:accubits/src/models/article_list_response.dart';
+import 'package:accubits/src/utils/constants.dart';
 import 'package:accubits/src/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomePage extends StatefulWidget {
+class NewsFeed extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _NewsFeedState createState() => _NewsFeedState();
 }
 
-class _HomePageState extends State<HomePage> {
-  List<String> img = [
-    "https://images.pexels.com/photos/1904769/pexels-photo-1904769.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-    "https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-    "https://images.pexels.com/photos/3214993/pexels-photo-3214993.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-  ];
+class _NewsFeedState extends State<NewsFeed> {
   ScrollController _scrollController = new ScrollController();
 
   ArticleListResponse result;
@@ -77,13 +72,13 @@ class _HomePageState extends State<HomePage> {
                                             bottomRight: Radius.circular(15))),
                                     child: Container(
                                       height:
-                                          screenHeight(context, dividedBy: 3),
+                                      screenHeight(context, dividedBy: 2.5),
                                       width:
-                                          screenWidth(context, dividedBy: 1.5),
+                                      screenWidth(context, dividedBy: 1.5),
                                       child: Stack(
                                         children: <Widget>[
                                           Positioned(
-                                              top: 0,
+                                              top: 15,
                                               left: 15,
                                               right: 10,
                                               bottom: 10,
@@ -92,28 +87,29 @@ class _HomePageState extends State<HomePage> {
                                                   Container(
                                                     child: Text(
                                                       snapshot
-                                                                  .data
-                                                                  .articles[
-                                                                      index]
-                                                                  .publishedAt ==
-                                                              null
+                                                          .data
+                                                          .articles[
+                                                      index]
+                                                          .title ==
+                                                          null
                                                           ? ""
                                                           : snapshot
-                                                              .data
-                                                              .articles[index]
-                                                              .description,
+                                                          .data
+                                                          .articles[index]
+                                                          .title,
                                                       style: TextStyle(
                                                           color: Colors.white,
                                                           fontWeight:
-                                                              FontWeight.w600),
+                                                          FontWeight.w600,
+                                                          fontSize: 16),
                                                       overflow:
-                                                          TextOverflow.visible,
+                                                      TextOverflow.visible,
                                                     ),
                                                   ),
                                                   SizedBox(
                                                     height: screenHeight(
                                                         context,
-                                                        dividedBy: 10),
+                                                        dividedBy: 6),
                                                   ),
                                                   Container(
                                                     child: Text(
@@ -121,19 +117,20 @@ class _HomePageState extends State<HomePage> {
                                                                   .data
                                                                   .articles[
                                                                       index]
-                                                                  .description ==
-                                                              null
+                                                          .description ==
+                                                          null
                                                           ? ""
                                                           : snapshot
-                                                              .data
-                                                              .articles[index]
-                                                              .description,
+                                                          .data
+                                                          .articles[index]
+                                                          .description,
                                                       style: TextStyle(
                                                           color: Colors.white,
                                                           fontWeight:
-                                                              FontWeight.w600),
+                                                          FontWeight.w600,
+                                                          fontSize: 14),
                                                       overflow:
-                                                          TextOverflow.visible,
+                                                      TextOverflow.visible,
                                                     ),
                                                   ),
                                                 ],
@@ -141,25 +138,26 @@ class _HomePageState extends State<HomePage> {
                                         ],
                                       ),
                                       decoration: BoxDecoration(
+                                          color: Colors.black.withOpacity(.50),
                                           borderRadius:
-                                              BorderRadiusDirectional.only(
-                                                  topStart: Radius.circular(15),
-                                                  topEnd: Radius.circular(15),
-                                                  bottomStart:
-                                                      Radius.circular(15),
-                                                  bottomEnd:
-                                                      Radius.circular(15)),
+                                          BorderRadiusDirectional.only(
+                                              topStart: Radius.circular(15),
+                                              topEnd: Radius.circular(15),
+                                              bottomStart:
+                                              Radius.circular(15),
+                                              bottomEnd:
+                                              Radius.circular(15)),
                                           image: DecorationImage(
                                               image: NetworkImage(snapshot
-                                                          .data
-                                                          .articles[index]
-                                                          .urlToImage !=
-                                                      null
+                                                  .data
+                                                  .articles[index]
+                                                  .urlToImage !=
+                                                  null
                                                   ? snapshot
-                                                      .data
-                                                      .articles[index]
-                                                      .urlToImage
-                                                  : img[0]),
+                                                  .data
+                                                  .articles[index]
+                                                  .urlToImage
+                                                  : Constants.imageSample[0]),
                                               fit: BoxFit.cover)),
                                     )),
                                 onTap: () async {

@@ -13,16 +13,14 @@ class Constants {
     Color(0xFFf0f0f0),
   ];
 
+  static const List<String> imageSample = [
+    "https://images.pexels.com/photos/1904769/pexels-photo-1904769.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "https://images.pexels.com/photos/1122868/pexels-photo-1122868.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+    "https://images.pexels.com/photos/3214993/pexels-photo-3214993.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  ];
+
   ///icons
-  static const String QR_CODE_ICON = "assets/icons/qr_code.png";
-  static const String LOGIN_LOGO_ICON = "assets/icons/login_logo.png";
-  static const String ORDER_HISTORY_ICON = "assets/icons/time.png";
-  static const String HOME_ICON = 'assets/icons/home.png';
-  static const String SETTINGS_ICON = 'assets/icons/setting.png';
-  static const String BOOKING_RUPEES_ICON = 'assets/icons/rupee.png';
-  static const String DELETE_ICON = 'assets/icons/delete.png';
-  static const String SODEXO_PNG = 'assets/images/sodexo.png';
-  static const String PAYTM_PNG = 'assets/images/paytm.png';
 
   ///error
   static const String SOME_ERROR_OCCURRED = "Some error occurred.";
@@ -37,12 +35,6 @@ class Constants {
   static const String WARNING_TOAST_DINNER =
       "Dinner should be booked before 6 PM";
 
-  ///Booking screen
-  static const String BOOKING_TITLE = "Book Your ";
-  static const String CONFIRM_DINE_IN = "Confirm dine-in order?";
-
-  ///order page
-  static const String ORDERS_TITLE = "My Orders";
 
   ///no internet
   static const String NO_INTERNET_TEXT = "No Internet Connection !!!";
