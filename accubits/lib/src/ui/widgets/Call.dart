@@ -1,3 +1,4 @@
+import 'package:accubits/src/ui/widgets/contact_chip.dart';
 import 'package:flutter/material.dart';
 
 class Call extends StatefulWidget {
@@ -24,21 +25,16 @@ class _CallState extends State<Call> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  width: 30.0,
-                  height: 30.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.green,
-                  ),
+                ContactChip(
+                  color: Colors.green,
+                  iconData: Icons.call,
                 ),
-                Container(
-                  width: 30.0,
-                  height: 30.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.orangeAccent,
-                  ),
+                SizedBox(
+                  width: 5,
+                ),
+                ContactChip(
+                  color: Colors.orange,
+                  iconData: Icons.location_on,
                 )
               ],
             )

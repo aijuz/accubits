@@ -1,3 +1,4 @@
+import 'package:accubits/src/ui/widgets/cold_warm_chip.dart';
 import 'package:flutter/material.dart';
 
 class Filters extends StatefulWidget {
@@ -20,23 +21,21 @@ class _FiltersState extends State<Filters> {
                 fontSize: 13.0,
                 fontFamily: 'Poppins'),
           ),
-          Container(
-            height: 30.0,
-            width: 60.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              color: Colors.green,
-            ),
-            child: Text('warm'),
+          SizedBox(
+            height: 5,
           ),
-          Container(
-            height: 30.0,
-            width: 60.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              color: Colors.green,
-            ),
-            child: Text('Cold'),
+          ColdWarmChip(
+            color: Colors.blue,
+            iconData: Icons.ac_unit,
+            name: "cold",
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          ColdWarmChip(
+            color: Colors.orange,
+            iconData: Icons.brightness_low,
+            name: "warm",
           )
         ],
       ),

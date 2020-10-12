@@ -18,12 +18,13 @@ class _SampleUIState extends State<SampleUI> {
     return Scaffold(
       backgroundColor: Colors.orangeAccent,
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-            vertical: screenHeight(context, dividedBy: 20),
-            horizontal: screenWidth(context, dividedBy: 20)),
+      body: Center(
         child: Container(
-          width: MediaQuery.of(context).size.width,
+          height: screenHeight(
+            context,
+            dividedBy: 1.2,
+          ),
+          width: screenWidth(context, dividedBy: 1.1),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(35.0),
               border: Border.all(style: BorderStyle.none),
@@ -67,7 +68,10 @@ class _SampleUIState extends State<SampleUI> {
                         fontSize: 27.0,
                         fontFamily: 'Poppins')),
               ),
-              SearchBar(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SearchBar(),
+              ),
               SizedBox(
                 height: screenHeight(context, dividedBy: 20),
               ),
@@ -75,13 +79,14 @@ class _SampleUIState extends State<SampleUI> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Column(
+                    Column(mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         TopLight(),
                         Call(),
                         Filters(),
                       ],
                     ),
+                    SizedBox(width: screenWidth(context, dividedBy: 5),),
                     LampColumn(),
                   ],
                 ),
