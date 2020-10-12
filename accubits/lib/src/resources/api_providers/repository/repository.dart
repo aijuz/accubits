@@ -5,5 +5,5 @@ import 'package:accubits/src/resources/api_providers/user_api_provider.dart';
 class Repository {
   final userApiProvider = UserApiProvider();
 
-  Future<State> sampleCall() => userApiProvider.sampleCall();
+  Future<State> getArticleList() => userApiProvider.getArticleList();
 }

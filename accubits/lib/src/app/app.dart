@@ -1,4 +1,4 @@
-import 'package:accubits/src/ui/screens/Auth/login.dart';
+import 'package:accubits/src/ui/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Login(),
+      home: HomePage(),
     );
   }
 }

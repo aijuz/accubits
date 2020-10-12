@@ -39,6 +39,8 @@ dev_dependencies:
   dio: ^3.0.10
   dio_cookie_manager: ^1.0.0
   multi_select_flutter: ^3.1.0
+  url_launcher: ^5.7.2
+  progress_indicators: ^0.1.5
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

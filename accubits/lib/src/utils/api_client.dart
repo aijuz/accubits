@@ -54,8 +54,8 @@ class ApiClient {
   }
 
   /// Verify User
-  Future<Response> sampleApiCall() {
-    return dio.post("", data: {});
+  Future<Response> getArticleList() {
+    return dio.get(Urls.articleListUrl);
   }
 
   /// search Flatmate

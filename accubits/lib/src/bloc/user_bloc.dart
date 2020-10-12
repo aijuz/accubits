@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:accubits/src/models/notification/notification_list_response.dart';
+import 'package:accubits/src/models/article_list_response.dart';
 import 'package:accubits/src/models/state.dart';
 import 'package:accubits/src/utils/constants.dart';
 import 'package:accubits/src/utils/object_factory.dart';
@@ -13,29 +13,29 @@ import 'base_bloc.dart';
 class UserBloc extends Object implements BaseBloc {
   StreamController<bool> _loading = new StreamController<bool>.broadcast();
 
-  StreamController<SampleResponseModel> _sample =
-      new StreamController<SampleResponseModel>.broadcast();
+  StreamController<ArticleListResponse> _articleList =
+  new StreamController<ArticleListResponse>.broadcast();
 
 //stream controller is broadcasting the  details
 
-  Stream<SampleResponseModel> get sampleResponse => _sample.stream;
+  Stream<ArticleListResponse> get articleListResponse => _articleList.stream;
 
   /// stream for progress bar
   Stream<bool> get loadingListener => _loading.stream;
 
   StreamSink<bool> get loadingSink => _loading.sink;
 
-  sampleCall() async {
+  getArticleList() async {
     loadingSink.add(true);
 
-    State state = await ObjectFactory().repository.sampleCall();
+    State state = await ObjectFactory().repository.getArticleList();
 
     if (state is SuccessState) {
       loadingSink.add(false);
-      _sample.sink.add(state.value);
+      _articleList.sink.add(state.value);
     } else if (state is ErrorState) {
       loadingSink.add(false);
-      _sample.sink.addError(Constants.SOME_ERROR_OCCURRED);
+      _articleList.sink.addError(Constants.SOME_ERROR_OCCURRED);
     }
   }
 
@@ -43,7 +43,7 @@ class UserBloc extends Object implements BaseBloc {
   @override
   void dispose() {
     _loading?.close();
-    _sample?.close();
+    _articleList?.close();
   }
 }
 
